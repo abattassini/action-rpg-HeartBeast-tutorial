@@ -31,7 +31,6 @@ func _physics_process(delta):
 			
 		PlayerStates.ROLL:
 			pass
-
 			
 func move_state(delta):
 	var input_vector = Vector2.ZERO
