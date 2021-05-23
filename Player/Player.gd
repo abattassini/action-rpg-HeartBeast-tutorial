@@ -19,6 +19,7 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get('parameters/playback')
 onready var swordHitbox = $HitboxPivot/SwordHitbox
+onready var sprite = $Sprite
 
 func _ready():
 	animationTree.active = true
@@ -45,6 +46,7 @@ func move_state(delta):
 	if (input_vector != Vector2.ZERO):
 		roll_vector = input_vector
 		swordHitbox.knockback_vector = input_vector
+		swordHitbox.playerSpritePosition = sprite.global_position
 		animationTree.set('parameters/Idle/blend_position', input_vector)
 		animationTree.set('parameters/Run/blend_position', input_vector)
 		animationTree.set('parameters/Attack/blend_position', input_vector)
